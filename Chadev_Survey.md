@@ -552,6 +552,7 @@ survey_df_raw.describe()
 
 
 
+
 ## Now on to questions
 
 ### Question 1: What is the most common company size, years of experience, number of jobs, number of books read, salary
