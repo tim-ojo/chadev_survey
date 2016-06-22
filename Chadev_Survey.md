@@ -233,18 +233,26 @@ survey_df_raw.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>Timestamp</th>
       <th>YEARS_EXP</th>
       <th>NUM_HOURS_WORK</th>
+      <th>DES_NUM_HOURS_WORK</th>
       <th>DAYS_OFF</th>
       <th>SALARY</th>
       <th>COMP_SIZE</th>
       <th>HEALTH_INS</th>
+      <th>HEALTH_INS_PCT</th>
       <th>STACK</th>
       <th>COMP_MEALS</th>
       <th>CONF_BUDGET</th>
+      <th>PAID_LUNCH_HOUR</th>
+      <th>PUBLIC_SPEAKING</th>
+      <th>FREE_TESLA</th>
       <th>401K</th>
       <th>TRAINING_BUDGET</th>
+      <th>RIGHT_LEFT_BRAIN</th>
       <th>BOOKS_READ</th>
+      <th>HIGH_SCHOOL</th>
       <th>DEGREE</th>
       <th>CAREER_DEGREE</th>
       <th>WORK_HIST_COUNT</th>
@@ -253,90 +261,130 @@ survey_df_raw.head()
   <tbody>
     <tr>
       <th>0</th>
+      <td>9/4/2015 23:08:05</td>
       <td>5</td>
       <td>35</td>
+      <td>32</td>
       <td>20</td>
       <td>70000</td>
       <td>1</td>
       <td>True</td>
+      <td>100</td>
       <td>rails; angular; javascript; ruby</td>
       <td>4</td>
       <td>0</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
       <td>False</td>
       <td>False</td>
+      <td>True</td>
       <td>0</td>
+      <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>8</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>9/4/2015 23:56:55</td>
       <td>10</td>
       <td>40</td>
+      <td>30</td>
       <td>0</td>
       <td>120000</td>
       <td>1</td>
       <td>False</td>
+      <td>0</td>
       <td>linux; apache; mysql; php; lemp; javascript; f...</td>
       <td>4</td>
       <td>3000</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
       <td>False</td>
       <td>True</td>
+      <td>False</td>
       <td>3</td>
+      <td>True</td>
       <td>False</td>
       <td>False</td>
       <td>6</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>9/5/2015 0:34:15</td>
       <td>11</td>
       <td>45</td>
+      <td>40</td>
       <td>15</td>
       <td>75000</td>
       <td>2</td>
       <td>True</td>
+      <td>25</td>
       <td>.NET; Puppet; Java; Windows; Debian; Node; Jav...</td>
       <td>0</td>
       <td>0</td>
       <td>False</td>
       <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
       <td>2</td>
+      <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>6</td>
     </tr>
     <tr>
       <th>3</th>
+      <td>9/5/2015 8:36:17</td>
       <td>6</td>
       <td>40</td>
+      <td>20</td>
       <td>16</td>
       <td>77000</td>
       <td>2</td>
       <td>True</td>
+      <td>50</td>
       <td>Linux; PHP; Nginx; Postgresql</td>
       <td>0</td>
       <td>0</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>10</td>
+      <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>3</td>
     </tr>
     <tr>
       <th>4</th>
+      <td>9/5/2015 12:07:20</td>
       <td>6</td>
       <td>50</td>
+      <td>60</td>
       <td>14</td>
       <td>70000</td>
       <td>2</td>
       <td>True</td>
-      <td>Ruby; Rails; PHP; Magento; Nginx; Linux; OS X</td>
+      <td>80</td>
+      <td>Ruby; Rails; PHP; Magento; Nginx; Linux; OSX</td>
       <td>0</td>
       <td>0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>3</td>
+      <td>True</td>
       <td>False</td>
       <td>False</td>
       <td>3</td>
@@ -432,7 +480,7 @@ survey_df_raw.describe()
       <td>43.044776</td>
       <td>21.059701</td>
       <td>82020.149254</td>
-      <td>198.925373</td>
+      <td>2.492537</td>
       <td>0.880597</td>
       <td>1.343284</td>
       <td>5302.238806</td>
@@ -449,7 +497,7 @@ survey_df_raw.describe()
       <td>6.883077</td>
       <td>16.737619</td>
       <td>28621.548435</td>
-      <td>329.753595</td>
+      <td>1.172580</td>
       <td>0.3267094</td>
       <td>2.421821</td>
       <td>27144.660774</td>
@@ -483,7 +531,7 @@ survey_df_raw.describe()
       <td>40.000000</td>
       <td>14.000000</td>
       <td>65000.000000</td>
-      <td>10.000000</td>
+      <td>2.000000</td>
       <td>1</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -500,7 +548,7 @@ survey_df_raw.describe()
       <td>40.000000</td>
       <td>20.000000</td>
       <td>77000.000000</td>
-      <td>30.000000</td>
+      <td>2.000000</td>
       <td>1</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -517,7 +565,7 @@ survey_df_raw.describe()
       <td>47.000000</td>
       <td>23.500000</td>
       <td>95000.000000</td>
-      <td>250.000000</td>
+      <td>3.000000</td>
       <td>1</td>
       <td>2.000000</td>
       <td>475.000000</td>
@@ -534,7 +582,7 @@ survey_df_raw.describe()
       <td>65.000000</td>
       <td>100.000000</td>
       <td>185000.000000</td>
-      <td>1001.000000</td>
+      <td>5.000000</td>
       <td>True</td>
       <td>10.000000</td>
       <td>200000.000000</td>
@@ -548,7 +596,6 @@ survey_df_raw.describe()
   </tbody>
 </table>
 </div>
-
 
 
 
@@ -747,7 +794,7 @@ tf_vectorizer.get_feature_names()
      u'node',
      u'obj c',
      u'oracle',
-     u'os x',
+     u'osx',
      u'outlook',
      u'perl',
      u'phone',
@@ -946,7 +993,7 @@ survey_df_wTM.head()
       <th>node</th>
       <th>obj c</th>
       <th>oracle</th>
-      <th>os x</th>
+      <th>osx</th>
       <th>outlook</th>
       <th>perl</th>
       <th>phone</th>
@@ -1953,9 +2000,9 @@ kmeans.labels_
 
 
 
-    array([0, 2, 0, 0, 0, 3, 0, 3, 2, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1,
-           4, 0, 0, 0, 0, 0, 3, 3, 0, 2, 0, 0, 0, 0, 3, 2, 3, 0, 0, 2, 0, 0, 0,
-           3, 0, 0, 0, 2, 3, 3, 3, 3, 3, 3, 2, 2, 0, 3, 2, 2, 0, 0, 3, 3], dtype=int32)
+    array([0, 1, 0, 0, 0, 3, 0, 3, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 2,
+           4, 0, 0, 0, 0, 0, 3, 3, 0, 1, 0, 0, 0, 0, 3, 1, 3, 0, 0, 1, 0, 0, 0,
+           3, 0, 0, 0, 1, 3, 3, 3, 3, 3, 3, 1, 1, 0, 3, 1, 1, 0, 0, 3, 3], dtype=int32)
 
 
 
@@ -2090,7 +2137,7 @@ survey_df_c1.head(10)
       <th>node</th>
       <th>obj c</th>
       <th>oracle</th>
-      <th>os x</th>
+      <th>osx</th>
       <th>outlook</th>
       <th>perl</th>
       <th>phone</th>
@@ -2336,7 +2383,7 @@ survey_df_c1.head(10)
     </tr>
     <tr>
       <th>1</th>
-      <td>2</td>
+      <td>1</td>
       <td>10</td>
       <td>40</td>
       <td>0</td>
@@ -3589,7 +3636,7 @@ survey_df_c1.head(10)
     </tr>
     <tr>
       <th>8</th>
-      <td>2</td>
+      <td>1</td>
       <td>18</td>
       <td>50</td>
       <td>30</td>
@@ -3768,7 +3815,7 @@ survey_df_c1.head(10)
     </tr>
     <tr>
       <th>9</th>
-      <td>2</td>
+      <td>1</td>
       <td>30</td>
       <td>20</td>
       <td>20</td>
@@ -4078,7 +4125,7 @@ survey_df_c1.tail(10)
       <th>node</th>
       <th>obj c</th>
       <th>oracle</th>
-      <th>os x</th>
+      <th>osx</th>
       <th>outlook</th>
       <th>perl</th>
       <th>phone</th>
@@ -4145,7 +4192,7 @@ survey_df_c1.tail(10)
   <tbody>
     <tr>
       <th>57</th>
-      <td>2</td>
+      <td>1</td>
       <td>10.0</td>
       <td>45</td>
       <td>25</td>
@@ -4324,7 +4371,7 @@ survey_df_c1.tail(10)
     </tr>
     <tr>
       <th>58</th>
-      <td>2</td>
+      <td>1</td>
       <td>10.0</td>
       <td>40</td>
       <td>25</td>
@@ -4861,7 +4908,7 @@ survey_df_c1.tail(10)
     </tr>
     <tr>
       <th>61</th>
-      <td>2</td>
+      <td>1</td>
       <td>20.0</td>
       <td>35</td>
       <td>45</td>
@@ -5040,7 +5087,7 @@ survey_df_c1.tail(10)
     </tr>
     <tr>
       <th>62</th>
-      <td>2</td>
+      <td>1</td>
       <td>11.0</td>
       <td>45</td>
       <td>20</td>
@@ -6622,210 +6669,6 @@ cl1_groups.agg([np.mean, np.min, np.max, np.std])
     </tr>
     <tr>
       <th>1</th>
-      <td>9.000000</td>
-      <td>9.0</td>
-      <td>9</td>
-      <td>NaN</td>
-      <td>40.000000</td>
-      <td>40</td>
-      <td>40</td>
-      <td>NaN</td>
-      <td>25.000000</td>
-      <td>25</td>
-      <td>25</td>
-      <td>NaN</td>
-      <td>90000</td>
-      <td>90000</td>
-      <td>90000</td>
-      <td>NaN</td>
-      <td>2.000000</td>
-      <td>2</td>
-      <td>2</td>
-      <td>NaN</td>
-      <td>1.000000</td>
-      <td>True</td>
-      <td>True</td>
-      <td>NaN</td>
-      <td>1.000000</td>
-      <td>1</td>
-      <td>1</td>
-      <td>NaN</td>
-      <td>200000.000000</td>
-      <td>200000</td>
-      <td>200000</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>False</td>
-      <td>False</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>False</td>
-      <td>False</td>
-      <td>NaN</td>
-      <td>8.000000</td>
-      <td>8</td>
-      <td>8</td>
-      <td>NaN</td>
-      <td>1.000000</td>
-      <td>True</td>
-      <td>True</td>
-      <td>NaN</td>
-      <td>1.000000</td>
-      <td>True</td>
-      <td>True</td>
-      <td>NaN</td>
-      <td>4.000000</td>
-      <td>4</td>
-      <td>4</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
       <td>12.833333</td>
       <td>4.0</td>
       <td>30</td>
@@ -7027,6 +6870,210 @@ cl1_groups.agg([np.mean, np.min, np.max, np.std])
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9.000000</td>
+      <td>9.0</td>
+      <td>9</td>
+      <td>NaN</td>
+      <td>40.000000</td>
+      <td>40</td>
+      <td>40</td>
+      <td>NaN</td>
+      <td>25.000000</td>
+      <td>25</td>
+      <td>25</td>
+      <td>NaN</td>
+      <td>90000</td>
+      <td>90000</td>
+      <td>90000</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+      <td>2</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>True</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>200000.000000</td>
+      <td>200000</td>
+      <td>200000</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>8.000000</td>
+      <td>8</td>
+      <td>8</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>True</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>True</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>4.000000</td>
+      <td>4</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
@@ -7786,7 +7833,7 @@ survey_df_c2.head(10)
       <th>node</th>
       <th>obj c</th>
       <th>oracle</th>
-      <th>os x</th>
+      <th>osx</th>
       <th>outlook</th>
       <th>perl</th>
       <th>phone</th>
@@ -7853,7 +7900,7 @@ survey_df_c2.head(10)
   <tbody>
     <tr>
       <th>0</th>
-      <td>4</td>
+      <td>2</td>
       <td>5</td>
       <td>35</td>
       <td>20</td>
@@ -8211,7 +8258,7 @@ survey_df_c2.head(10)
     </tr>
     <tr>
       <th>2</th>
-      <td>4</td>
+      <td>2</td>
       <td>11</td>
       <td>45</td>
       <td>15</td>
@@ -8390,7 +8437,7 @@ survey_df_c2.head(10)
     </tr>
     <tr>
       <th>3</th>
-      <td>4</td>
+      <td>2</td>
       <td>6</td>
       <td>40</td>
       <td>16</td>
@@ -8569,7 +8616,7 @@ survey_df_c2.head(10)
     </tr>
     <tr>
       <th>4</th>
-      <td>2</td>
+      <td>0</td>
       <td>6</td>
       <td>50</td>
       <td>14</td>
@@ -8927,7 +8974,7 @@ survey_df_c2.head(10)
     </tr>
     <tr>
       <th>6</th>
-      <td>0</td>
+      <td>4</td>
       <td>16</td>
       <td>50</td>
       <td>15</td>
@@ -9464,7 +9511,7 @@ survey_df_c2.head(10)
     </tr>
     <tr>
       <th>9</th>
-      <td>2</td>
+      <td>0</td>
       <td>30</td>
       <td>20</td>
       <td>20</td>
@@ -10128,98 +10175,70 @@ cl2_groups.agg([np.mean, np.min, np.max, np.std])
   <tbody>
     <tr>
       <th>0</th>
-      <td>9.909091</td>
+      <td>8.666667</td>
       <td>1.0</td>
+      <td>30</td>
+      <td>7.715167</td>
+      <td>41.666667</td>
+      <td>20</td>
+      <td>65</td>
+      <td>9.385906</td>
+      <td>15.933333</td>
+      <td>5</td>
       <td>25</td>
-      <td>6.582148</td>
-      <td>44.636364</td>
-      <td>35</td>
-      <td>60</td>
-      <td>5.980488</td>
-      <td>22.227273</td>
-      <td>10</td>
-      <td>100</td>
-      <td>18.094808</td>
-      <td>82709</td>
-      <td>40000</td>
-      <td>115000</td>
-      <td>20678.253094</td>
-      <td>2.181818</td>
+      <td>6.005553</td>
+      <td>81133</td>
+      <td>30000</td>
+      <td>165000</td>
+      <td>32447.466696</td>
+      <td>2.000000</td>
       <td>2</td>
-      <td>3</td>
-      <td>0.394771</td>
-      <td>1.000000</td>
-      <td>True</td>
-      <td>True</td>
+      <td>2</td>
       <td>0.000000</td>
-      <td>1.363636</td>
-      <td>0</td>
-      <td>8</td>
-      <td>2.300009</td>
-      <td>870.454545</td>
-      <td>0</td>
-      <td>5000</td>
-      <td>1524.299839</td>
-      <td>1.000000</td>
-      <td>True</td>
-      <td>True</td>
-      <td>0.000000</td>
-      <td>0.454545</td>
+      <td>0.933333</td>
       <td>False</td>
       <td>True</td>
-      <td>0.509647</td>
-      <td>11.318182</td>
+      <td>0.258199</td>
+      <td>0.800000</td>
       <td>0</td>
-      <td>50</td>
-      <td>13.608073</td>
-      <td>1.000000</td>
-      <td>True</td>
-      <td>True</td>
-      <td>0.000000</td>
-      <td>0.909091</td>
+      <td>9</td>
+      <td>2.336053</td>
+      <td>7100.000000</td>
+      <td>0</td>
+      <td>100000</td>
+      <td>25733.663323</td>
+      <td>0.400000</td>
       <td>False</td>
       <td>True</td>
-      <td>0.294245</td>
-      <td>6.454545</td>
+      <td>0.507093</td>
+      <td>0.200000</td>
+      <td>False</td>
+      <td>True</td>
+      <td>0.414039</td>
+      <td>6.600000</td>
+      <td>1</td>
+      <td>35</td>
+      <td>8.466742</td>
+      <td>0.266667</td>
+      <td>False</td>
+      <td>True</td>
+      <td>0.457738</td>
+      <td>0.000000</td>
+      <td>False</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>6.866667</td>
       <td>1</td>
       <td>27</td>
-      <td>5.483545</td>
-      <td>0.136364</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.351250</td>
-      <td>0.227273</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.428932</td>
-      <td>0.045455</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.213201</td>
+      <td>7.170044</td>
       <td>0.000000</td>
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.045455</td>
+      <td>0.133333</td>
       <td>0</td>
       <td>1</td>
-      <td>0.213201</td>
-      <td>0.318182</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.476731</td>
-      <td>0.045455</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.213201</td>
-      <td>0.045455</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.213201</td>
-      <td>0.045455</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.213201</td>
+      <td>0.351866</td>
       <td>0.000000</td>
       <td>0</td>
       <td>0</td>
@@ -10228,15 +10247,59 @@ cl2_groups.agg([np.mean, np.min, np.max, np.std])
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.133333</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.351866</td>
+      <td>0.066667</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.258199</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.066667</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.258199</td>
+      <td>0.066667</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.258199</td>
       <td>...</td>
-      <td>0.045455</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.066667</td>
       <td>0</td>
       <td>1</td>
-      <td>0.213201</td>
-      <td>0.090909</td>
+      <td>0.258199</td>
+      <td>0.066667</td>
       <td>0</td>
       <td>1</td>
-      <td>0.294245</td>
+      <td>0.258199</td>
       <td>0.000000</td>
       <td>0</td>
       <td>0</td>
@@ -10245,78 +10308,62 @@ cl2_groups.agg([np.mean, np.min, np.max, np.std])
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.045455</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.066667</td>
       <td>0</td>
       <td>1</td>
-      <td>0.213201</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.045455</td>
+      <td>0.258199</td>
+      <td>0.066667</td>
       <td>0</td>
       <td>1</td>
-      <td>0.213201</td>
-      <td>0.045455</td>
+      <td>0.258199</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.066667</td>
       <td>0</td>
       <td>1</td>
-      <td>0.213201</td>
-      <td>0.318182</td>
+      <td>0.258199</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.066667</td>
       <td>0</td>
       <td>1</td>
-      <td>0.476731</td>
+      <td>0.258199</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.045455</td>
+      <td>0.066667</td>
       <td>0</td>
       <td>1</td>
-      <td>0.213201</td>
-      <td>0.045455</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.213201</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.045455</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.213201</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.045455</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.213201</td>
-      <td>0.045455</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.213201</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.045455</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.213201</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
+      <td>0.258199</td>
       <td>0.000000</td>
       <td>0</td>
       <td>0</td>
@@ -10477,11 +10524,11 @@ cl2_groups.agg([np.mean, np.min, np.max, np.std])
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
@@ -10501,7 +10548,7 @@ cl2_groups.agg([np.mean, np.min, np.max, np.std])
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
@@ -10509,7 +10556,7 @@ cl2_groups.agg([np.mean, np.min, np.max, np.std])
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
@@ -10536,131 +10583,115 @@ cl2_groups.agg([np.mean, np.min, np.max, np.std])
     </tr>
     <tr>
       <th>2</th>
-      <td>8.642857</td>
-      <td>1.0</td>
-      <td>30</td>
-      <td>8.005836</td>
-      <td>41.785714</td>
-      <td>20</td>
-      <td>65</td>
-      <td>9.728456</td>
-      <td>16.071429</td>
-      <td>5</td>
+      <td>6.522727</td>
+      <td>0.5</td>
       <td>25</td>
-      <td>6.207493</td>
-      <td>80500</td>
-      <td>30000</td>
-      <td>165000</td>
-      <td>33575.975831</td>
-      <td>2.000000</td>
-      <td>2</td>
-      <td>2</td>
-      <td>0.000000</td>
-      <td>0.928571</td>
-      <td>False</td>
-      <td>True</td>
-      <td>0.267261</td>
-      <td>0.857143</td>
-      <td>0</td>
-      <td>9</td>
-      <td>2.413333</td>
-      <td>7607.142857</td>
-      <td>0</td>
-      <td>100000</td>
-      <td>26627.182878</td>
-      <td>0.357143</td>
-      <td>False</td>
-      <td>True</td>
-      <td>0.497245</td>
-      <td>0.214286</td>
-      <td>False</td>
-      <td>True</td>
-      <td>0.425815</td>
-      <td>6.714286</td>
-      <td>1</td>
+      <td>5.491286</td>
+      <td>42.272727</td>
       <td>35</td>
-      <td>8.774338</td>
-      <td>0.214286</td>
+      <td>60</td>
+      <td>5.284135</td>
+      <td>21.090909</td>
+      <td>10</td>
+      <td>100</td>
+      <td>18.322271</td>
+      <td>73954</td>
+      <td>40000</td>
+      <td>115000</td>
+      <td>16737.403980</td>
+      <td>1.909091</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.294245</td>
+      <td>0.954545</td>
       <td>False</td>
       <td>True</td>
-      <td>0.425815</td>
+      <td>0.213201</td>
+      <td>0.727273</td>
+      <td>0</td>
+      <td>6</td>
+      <td>1.517574</td>
+      <td>9227.272727</td>
+      <td>0</td>
+      <td>200000</td>
+      <td>42612.240378</td>
+      <td>0.500000</td>
+      <td>False</td>
+      <td>True</td>
+      <td>0.511766</td>
       <td>0.000000</td>
       <td>False</td>
       <td>False</td>
       <td>0.000000</td>
-      <td>5.428571</td>
-      <td>1</td>
+      <td>4.659091</td>
+      <td>0</td>
       <td>20</td>
-      <td>4.685728</td>
+      <td>4.658291</td>
+      <td>1.000000</td>
+      <td>True</td>
+      <td>True</td>
       <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
+      <td>1.000000</td>
+      <td>True</td>
+      <td>True</td>
       <td>0.000000</td>
-      <td>0.071429</td>
+      <td>4.045455</td>
+      <td>1</td>
+      <td>9</td>
+      <td>2.590776</td>
+      <td>0.090909</td>
       <td>0</td>
       <td>1</td>
-      <td>0.267261</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.142857</td>
+      <td>0.294245</td>
+      <td>0.136364</td>
       <td>0</td>
       <td>1</td>
-      <td>0.363137</td>
-      <td>0.071429</td>
+      <td>0.351250</td>
+      <td>0.045455</td>
       <td>0</td>
       <td>1</td>
-      <td>0.267261</td>
+      <td>0.213201</td>
       <td>0.000000</td>
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.071429</td>
+      <td>0.045455</td>
       <td>0</td>
       <td>1</td>
-      <td>0.267261</td>
-      <td>0.071429</td>
+      <td>0.213201</td>
+      <td>0.272727</td>
       <td>0</td>
       <td>1</td>
-      <td>0.267261</td>
+      <td>0.455842</td>
+      <td>0.045455</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.213201</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.045455</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.213201</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
       <td>...</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.071429</td>
+      <td>0.045455</td>
       <td>0</td>
       <td>1</td>
-      <td>0.267261</td>
-      <td>0.071429</td>
+      <td>0.213201</td>
+      <td>0.045455</td>
       <td>0</td>
       <td>1</td>
-      <td>0.267261</td>
+      <td>0.213201</td>
       <td>0.000000</td>
       <td>0</td>
       <td>0</td>
@@ -10669,62 +10700,78 @@ cl2_groups.agg([np.mean, np.min, np.max, np.std])
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.071429</td>
+      <td>0.045455</td>
       <td>0</td>
       <td>1</td>
-      <td>0.267261</td>
-      <td>0.071429</td>
+      <td>0.213201</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.045455</td>
       <td>0</td>
       <td>1</td>
-      <td>0.267261</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.071429</td>
+      <td>0.213201</td>
+      <td>0.045455</td>
       <td>0</td>
       <td>1</td>
-      <td>0.267261</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.071429</td>
+      <td>0.213201</td>
+      <td>0.272727</td>
       <td>0</td>
       <td>1</td>
-      <td>0.267261</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.071429</td>
+      <td>0.455842</td>
+      <td>0.045455</td>
       <td>0</td>
       <td>1</td>
-      <td>0.267261</td>
+      <td>0.213201</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.045455</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.213201</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.045455</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.213201</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.045455</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.213201</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.045455</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.213201</td>
+      <td>0.045455</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.213201</td>
       <td>0.000000</td>
       <td>0</td>
       <td>0</td>
@@ -10885,11 +10932,11 @@ cl2_groups.agg([np.mean, np.min, np.max, np.std])
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
@@ -10909,7 +10956,7 @@ cl2_groups.agg([np.mean, np.min, np.max, np.std])
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
@@ -10917,7 +10964,7 @@ cl2_groups.agg([np.mean, np.min, np.max, np.std])
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
@@ -10944,70 +10991,70 @@ cl2_groups.agg([np.mean, np.min, np.max, np.std])
     </tr>
     <tr>
       <th>4</th>
-      <td>5.136364</td>
-      <td>0.5</td>
-      <td>11</td>
-      <td>2.933351</td>
-      <td>40.909091</td>
-      <td>35</td>
-      <td>50</td>
-      <td>3.753786</td>
-      <td>16.363636</td>
-      <td>10</td>
+      <td>12.200000</td>
+      <td>5.0</td>
       <td>25</td>
-      <td>4.319091</td>
-      <td>72000</td>
+      <td>5.846176</td>
+      <td>46.200000</td>
+      <td>35</td>
+      <td>55</td>
+      <td>5.672546</td>
+      <td>19.100000</td>
+      <td>12</td>
+      <td>26</td>
+      <td>4.677369</td>
+      <td>89460</td>
       <td>40000</td>
-      <td>90000</td>
-      <td>12369.316877</td>
-      <td>1.818182</td>
-      <td>1</td>
+      <td>115000</td>
+      <td>20256.518827</td>
+      <td>2.400000</td>
       <td>2</td>
-      <td>0.404520</td>
-      <td>0.909091</td>
-      <td>False</td>
-      <td>True</td>
-      <td>0.301511</td>
-      <td>0.636364</td>
-      <td>0</td>
-      <td>4</td>
-      <td>1.286291</td>
-      <td>18181.818182</td>
-      <td>0</td>
-      <td>200000</td>
-      <td>60302.268913</td>
-      <td>0.000000</td>
-      <td>False</td>
-      <td>False</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>False</td>
-      <td>False</td>
-      <td>0.000000</td>
-      <td>4.318182</td>
-      <td>0</td>
-      <td>10</td>
-      <td>3.593555</td>
+      <td>3</td>
+      <td>0.516398</td>
       <td>1.000000</td>
       <td>True</td>
       <td>True</td>
       <td>0.000000</td>
-      <td>1.000000</td>
-      <td>True</td>
-      <td>True</td>
-      <td>0.000000</td>
-      <td>3.909091</td>
-      <td>1</td>
+      <td>2.100000</td>
+      <td>0</td>
       <td>8</td>
-      <td>2.071451</td>
-      <td>0.090909</td>
+      <td>2.766867</td>
+      <td>1615.000000</td>
+      <td>0</td>
+      <td>5000</td>
+      <td>1954.488936</td>
+      <td>1.000000</td>
+      <td>True</td>
+      <td>True</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>True</td>
+      <td>True</td>
+      <td>0.000000</td>
+      <td>18.900000</td>
+      <td>1</td>
+      <td>50</td>
+      <td>16.702960</td>
+      <td>1.000000</td>
+      <td>True</td>
+      <td>True</td>
+      <td>0.000000</td>
+      <td>0.900000</td>
+      <td>False</td>
+      <td>True</td>
+      <td>0.316228</td>
+      <td>6.900000</td>
+      <td>3</td>
+      <td>10</td>
+      <td>2.424413</td>
+      <td>0.200000</td>
       <td>0</td>
       <td>1</td>
-      <td>0.301511</td>
-      <td>0.181818</td>
+      <td>0.421637</td>
+      <td>0.300000</td>
       <td>0</td>
       <td>1</td>
-      <td>0.404520</td>
+      <td>0.483046</td>
       <td>0.000000</td>
       <td>0</td>
       <td>0</td>
@@ -11020,18 +11067,18 @@ cl2_groups.agg([np.mean, np.min, np.max, np.std])
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.181818</td>
+      <td>0.300000</td>
       <td>0</td>
       <td>1</td>
-      <td>0.404520</td>
+      <td>0.483046</td>
       <td>0.000000</td>
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.100000</td>
       <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
+      <td>1</td>
+      <td>0.316228</td>
       <td>0.000000</td>
       <td>0</td>
       <td>0</td>
@@ -11049,46 +11096,10 @@ cl2_groups.agg([np.mean, np.min, np.max, np.std])
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.000000</td>
-      <td>0.090909</td>
+      <td>0.100000</td>
       <td>0</td>
       <td>1</td>
-      <td>0.301511</td>
+      <td>0.316228</td>
       <td>0.000000</td>
       <td>0</td>
       <td>0</td>
@@ -11117,22 +11128,58 @@ cl2_groups.agg([np.mean, np.min, np.max, np.std])
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.090909</td>
+      <td>0.100000</td>
       <td>0</td>
       <td>1</td>
-      <td>0.301511</td>
+      <td>0.316228</td>
       <td>0.000000</td>
       <td>0</td>
       <td>0</td>
       <td>0.000000</td>
-      <td>0.090909</td>
+      <td>0.1</td>
       <td>0</td>
       <td>1</td>
-      <td>0.301511</td>
-      <td>0.090909</td>
+      <td>0.316228</td>
+      <td>0.1</td>
       <td>0</td>
       <td>1</td>
-      <td>0.301511</td>
+      <td>0.316228</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.316228</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.316228</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0</td>
       <td>0</td>
@@ -11168,9 +11215,9 @@ kmeans.labels_
 
 
 
-    array([3, 3, 3, 0, 0, 0, 3, 2, 3, 1, 3, 0, 3, 0, 1, 3, 3, 0, 3, 0, 0, 3, 3,
-           0, 0, 2, 0, 3, 0, 0, 0, 3, 3, 0, 3, 3, 0, 0, 3, 0, 3, 2, 3, 0, 0, 3,
-           0, 3, 3, 3, 4, 0, 0, 0, 0, 0, 0, 3, 3, 3, 0, 4, 3, 3, 3, 0, 0], dtype=int32)
+    array([4, 4, 4, 1, 1, 1, 4, 3, 0, 2, 4, 1, 0, 1, 2, 4, 4, 1, 4, 1, 1, 4, 4,
+           1, 1, 3, 1, 4, 1, 1, 1, 4, 4, 1, 4, 4, 1, 1, 4, 1, 4, 3, 0, 1, 1, 4,
+           1, 1, 4, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 4, 1, 0, 0, 4, 4, 1, 1], dtype=int32)
 
 
 
@@ -11198,70 +11245,70 @@ survey_df_c3.head(10)
   <tbody>
     <tr>
       <th>0</th>
-      <td>3</td>
+      <td>4</td>
       <td>70000</td>
       <td>20</td>
       <td>8</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>3</td>
+      <td>4</td>
       <td>120000</td>
       <td>0</td>
       <td>6</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>3</td>
+      <td>4</td>
       <td>75000</td>
       <td>15</td>
       <td>6</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0</td>
+      <td>1</td>
       <td>77000</td>
       <td>16</td>
       <td>3</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0</td>
+      <td>1</td>
       <td>70000</td>
       <td>14</td>
       <td>3</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>0</td>
+      <td>1</td>
       <td>45000</td>
       <td>14</td>
       <td>1</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>3</td>
+      <td>4</td>
       <td>93550</td>
       <td>15</td>
       <td>9</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>2</td>
+      <td>3</td>
       <td>50000</td>
       <td>60</td>
       <td>5</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>3</td>
+      <td>0</td>
       <td>130000</td>
       <td>30</td>
       <td>3</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>1</td>
+      <td>2</td>
       <td>120000</td>
       <td>20</td>
       <td>20</td>
@@ -11324,22 +11371,37 @@ cl3_groups.agg([np.mean, np.min, np.max, np.std])
   <tbody>
     <tr>
       <th>0</th>
-      <td>60441.666667</td>
-      <td>20000</td>
-      <td>77000</td>
-      <td>14838.452379</td>
-      <td>16.100000</td>
-      <td>0</td>
-      <td>33</td>
-      <td>6.814538</td>
-      <td>2.833333</td>
-      <td>1</td>
-      <td>6</td>
-      <td>1.416244</td>
+      <td>133750</td>
+      <td>115000</td>
+      <td>185000</td>
+      <td>26558.560616</td>
+      <td>26.125000</td>
+      <td>15</td>
+      <td>45</td>
+      <td>9.109453</td>
+      <td>6.250000</td>
+      <td>3</td>
+      <td>14</td>
+      <td>3.535534</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>105000.000000</td>
+      <td>61976</td>
+      <td>20000</td>
+      <td>89000</td>
+      <td>15604.016150</td>
+      <td>16.781250</td>
+      <td>0</td>
+      <td>33</td>
+      <td>7.156023</td>
+      <td>2.843750</td>
+      <td>1</td>
+      <td>6</td>
+      <td>1.393750</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>105000</td>
       <td>90000</td>
       <td>120000</td>
       <td>21213.203436</td>
@@ -11353,8 +11415,8 @@ cl3_groups.agg([np.mean, np.min, np.max, np.std])
       <td>4.949747</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>78500.000000</td>
+      <th>3</th>
+      <td>78500</td>
       <td>50000</td>
       <td>95000</td>
       <td>24784.067463</td>
@@ -11368,39 +11430,74 @@ cl3_groups.agg([np.mean, np.min, np.max, np.std])
       <td>3.055050</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>96220.000000</td>
-      <td>70000</td>
-      <td>130000</td>
-      <td>15975.415362</td>
-      <td>19.133333</td>
-      <td>0</td>
-      <td>30</td>
-      <td>7.550900</td>
-      <td>6.233333</td>
-      <td>2</td>
-      <td>10</td>
-      <td>2.192201</td>
-    </tr>
-    <tr>
       <th>4</th>
-      <td>175000.000000</td>
-      <td>165000</td>
-      <td>185000</td>
-      <td>14142.135624</td>
-      <td>30.000000</td>
-      <td>15</td>
-      <td>45</td>
-      <td>21.213203</td>
-      <td>10.500000</td>
-      <td>7</td>
-      <td>14</td>
-      <td>4.949747</td>
+      <td>90754</td>
+      <td>70000</td>
+      <td>120000</td>
+      <td>11685.011853</td>
+      <td>16.863636</td>
+      <td>0</td>
+      <td>26</td>
+      <td>7.278772</td>
+      <td>6.909091</td>
+      <td>4</td>
+      <td>10</td>
+      <td>1.949581</td>
     </tr>
   </tbody>
 </table>
 </div>
 
+
+
+
+```python
+%matplotlib inline
+
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+
+survey_df_c3b = survey_df_normalized.copy()[['SALARY', 'DAYS_OFF', 'WORK_HIST_COUNT']]
+survey_df_c3b.insert(0, 'CLUSTER3_LABEL', kmeans.labels_)
+cl3b_groups = survey_df_c3b.groupby(['CLUSTER3_LABEL'])
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+ax.scatter(cl3b_groups.get_group(0)['SALARY'].tolist(), 
+           cl3b_groups.get_group(0)['DAYS_OFF'].tolist(), 
+           cl3b_groups.get_group(0)['WORK_HIST_COUNT'].tolist(), 
+           c='r', marker='o')
+ax.scatter(cl3b_groups.get_group(1)['SALARY'].tolist(), 
+           cl3b_groups.get_group(1)['DAYS_OFF'].tolist(), 
+           cl3b_groups.get_group(1)['WORK_HIST_COUNT'].tolist(), 
+           c='b', marker='o')
+ax.scatter(cl3b_groups.get_group(2)['SALARY'].tolist(), 
+           cl3b_groups.get_group(2)['DAYS_OFF'].tolist(), 
+           cl3b_groups.get_group(2)['WORK_HIST_COUNT'].tolist(), 
+           c='y', marker='^')
+ax.scatter(cl3b_groups.get_group(3)['SALARY'].tolist(), 
+           cl3b_groups.get_group(3)['DAYS_OFF'].tolist(), 
+           cl3b_groups.get_group(3)['WORK_HIST_COUNT'].tolist(), 
+           c='g', marker='x')
+ax.scatter(cl3b_groups.get_group(4)['SALARY'].tolist(), 
+           cl3b_groups.get_group(4)['DAYS_OFF'].tolist(), 
+           cl3b_groups.get_group(4)['WORK_HIST_COUNT'].tolist(), 
+           c='w', marker='o')
+
+ax.set_xlabel('SALARY')
+ax.set_ylabel('DAYS_OFF')
+ax.set_zlabel('WORK_HIST_COUNT')
+
+plt.show()
+```
+
+    /Users/timojo/anaconda/lib/python2.7/site-packages/matplotlib/collections.py:590: FutureWarning: elementwise comparison failed; returning scalar instead, but in the future will perform elementwise comparison
+      if self._edgecolors == str('face'):
+
+
+
+![png](output_36_1.png)
 
 
 
@@ -11411,7 +11508,7 @@ cl3_groups.agg([np.mean, np.min, np.max, np.std])
 from sklearn.tree import DecisionTreeClassifier, export_graphviz
 
 y = survey_df_raw["SALARY"]
-X = survey_df_normalized.drop(["SALARY"], axis=1, inplace=False)
+X = survey_df_raw.drop(["SALARY", "STACK"], axis=1, inplace=False)
 tree = DecisionTreeClassifier(min_samples_split=4)
 tree.fit(X, y)
 ```
@@ -11422,7 +11519,7 @@ tree.fit(X, y)
     DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=None,
                 max_features=None, max_leaf_nodes=None, min_samples_leaf=1,
                 min_samples_split=4, min_weight_fraction_leaf=0.0,
-                random_state=None, splitter='best')
+                presort=False, random_state=None, splitter='best')
 
 
 
@@ -11441,7 +11538,7 @@ Image(filename='tree.png')
 
 
 
-![png](output_38_0.png)
+![png](output_39_0.png)
 
 
 
